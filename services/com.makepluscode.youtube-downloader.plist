@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Service Label -->
+    <key>Label</key>
+    <string>com.makepluscode.youtube-downloader</string>
+
+    <!-- Program to run -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>PLACEHOLDER_VENV_PATH/bin/python</string>
+        <string>-m</string>
+        <string>src.main</string>
+    </array>
+
+    <!-- Working Directory -->
+    <key>WorkingDirectory</key>
+    <string>PLACEHOLDER_PROJECT_PATH</string>
+
+    <!-- Environment Variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
+        <key>HOME</key>
+        <string>PLACEHOLDER_HOME</string>
+    </dict>
+
+    <!-- Keep the service running -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+
+    <!-- Start on load (boot) -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Restart on crash -->
+    <key>ThrottleInterval</key>
+    <integer>60</integer>
+
+    <!-- Standard output and error logs -->
+    <key>StandardOutPath</key>
+    <string>PLACEHOLDER_PROJECT_PATH/logs/stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>PLACEHOLDER_PROJECT_PATH/logs/stderr.log</string>
+
+    <!-- Process Type -->
+    <key>ProcessType</key>
+    <string>Interactive</string>
+
+    <!-- Nice value (lower priority) -->
+    <key>Nice</key>
+    <integer>1</integer>
+</dict>
+</plist>
+
