@@ -1,7 +1,7 @@
 [project]
-name = "slack-youtube-downloader"
+name = "youtube-download-agent"
 version = "1.0.0"
-description = "Slack bot that automatically downloads YouTube videos to iCloud Drive"
+description = "YouTube Download Agent - AI-powered agent that automatically downloads YouTube videos to iCloud Drive via Slack"
 authors = [
     {name = "makepluscode", email = "hello@makepluscode.com"}
 ]
@@ -45,5 +45,5 @@ line-length = 100
 target-version = "py311"
 
 [project.scripts]
-youtube-bot = "src.main:main"
+youtube-agent = "src.main:main"
 

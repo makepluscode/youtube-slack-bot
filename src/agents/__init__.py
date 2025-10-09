@@ -1,6 +1,6 @@
 """LangChain agents for workflow orchestration"""
 
-from .youtube_agent import YouTubeAgent
+from .youtube_agent import YouTubeDownloadAgent
 
-__all__ = ["YouTubeAgent"]
+__all__ = ["YouTubeDownloadAgent"]
 

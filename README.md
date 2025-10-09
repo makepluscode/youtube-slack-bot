@@ -1,4 +1,8 @@
-# Slack YouTube Downloader Bot (LangChain Edition)
+# YouTube Download Agent (LangChain Edition)
+
+<p align="center">
+  <img src="youtube-agent.png" alt="YouTube Download Agent" width="200"/>
+</p>
 
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![LangChain](https://img.shields.io/badge/🦜_LangChain-Powered-green.svg)](https://python.langchain.com/)
@@ -130,7 +134,7 @@ mkdir -p ~/Library/Mobile\ Documents/com~apple~CloudDocs/Youtube
 uv run python -m src.main
 
 # 또는 정의된 스크립트 사용
-uv run youtube-bot
+uv run youtube-agent
 ```
 
 ### 백그라운드 서비스로 실행

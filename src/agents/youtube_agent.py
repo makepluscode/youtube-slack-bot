@@ -1,4 +1,4 @@
-"""YouTube Agent for orchestrating the download workflow"""
+"""YouTube Download Agent for orchestrating the download workflow"""
 
 import logging
 from typing import Any, Callable, Optional
@@ -14,7 +14,7 @@ from ..config import Settings
 logger = logging.getLogger(__name__)
 
 
-class YouTubeAgent:
+class YouTubeDownloadAgent:
     """
     Agent that orchestrates YouTube video downloading workflow
     
@@ -57,7 +57,7 @@ class YouTubeAgent:
         # Currently we use a simpler workflow
         # self.agent_executor = self._create_agent()
         
-        logger.info("YouTubeAgent initialized")
+        logger.info("YouTubeDownloadAgent initialized")
 
     def _create_agent(self) -> AgentExecutor:
         """

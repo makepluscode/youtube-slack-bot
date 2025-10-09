@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# Setup script for Slack YouTube Downloader Bot
+# Setup script for YouTube Download Agent
 # This script installs all dependencies and configures the environment
 #
 
 set -e  # Exit on error
 
 echo "================================================"
-echo "Slack YouTube Downloader Bot - Setup"
+echo "YouTube Download Agent - Setup"
 echo "================================================"
 echo ""
 
@@ -133,7 +133,7 @@ echo "   nano $PROJECT_DIR/.env"
 echo ""
 echo "2. Test the bot:"
 echo "   cd $PROJECT_DIR"
-echo "   uv run youtube-bot"
+echo "   uv run youtube-agent"
 echo ""
 echo "3. Install as background service:"
 echo "   ./scripts/install_service.sh"

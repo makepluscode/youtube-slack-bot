@@ -21,7 +21,7 @@ nano .env
 ### 3. 실행
 ```bash
 # 개발 모드로 실행
-uv run youtube-bot
+uv run youtube-agent
 
 # 또는
 uv run python -m src.main
@@ -47,7 +47,7 @@ uv remove package-name
 ### 실행
 ```bash
 # 스크립트 실행
-uv run youtube-bot
+uv run youtube-agent
 
 # Python 모듈 실행
 uv run python -m src.main
@@ -105,7 +105,7 @@ launchctl load ~/Library/LaunchAgents/com.makepluscode.youtube-downloader.plist
 ### 디버깅
 ```bash
 # 상세 로그와 함께 실행
-LOG_LEVEL=DEBUG uv run youtube-bot
+LOG_LEVEL=DEBUG uv run youtube-agent
 
 # 실시간 로그 모니터링
 tail -f logs/app.log logs/stderr.log

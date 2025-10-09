@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# Install script for Slack YouTube Downloader Bot launchd service
+# Install script for YouTube Download Agent launchd service
 # This script configures and installs the bot as a background service on macOS
 #
 
 set -e  # Exit on error
 
 echo "================================================"
-echo "Slack YouTube Downloader Bot - Service Installation"
+echo "YouTube Download Agent - Service Installation"
 echo "================================================"
 echo ""
 

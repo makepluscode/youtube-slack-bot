@@ -1,15 +1,16 @@
 # PRD (Product Requirements Document)
-## Slack YouTube Downloader Bot
+## YouTube Download Agent
 
 ---
 
 ## 📋 프로젝트 개요
 
-**프로젝트명**: Slack YouTube Auto Downloader  
+**프로젝트명**: YouTube Download Agent  
 **버전**: 1.0.0  
 **플랫폼**: macOS (Mac mini)  
 **개발 언어**: Python 3.11+  
-**패키지 관리자**: uv
+**패키지 관리자**: uv  
+**아이콘**: youtube-agent.png
 
 ---
 

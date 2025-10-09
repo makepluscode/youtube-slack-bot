@@ -1,4 +1,4 @@
-"""Main entry point for the Slack YouTube Downloader Bot (LangChain-based)"""
+"""Main entry point for the YouTube Download Agent (LangChain-based)"""
 
 import logging
 import signal
@@ -8,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from .config import get_settings
-from .agents import YouTubeAgent
+from .agents import YouTubeDownloadAgent
 from .slack_handler import SlackHandler
 
 # Global flag for graceful shutdown
@@ -58,19 +58,19 @@ def signal_handler(signum, frame):
     running = False
 
 
-class YouTubeBot:
-    """Main bot orchestrator using LangChain Agent"""
+class YouTubeAgent:
+    """Main agent orchestrator using LangChain"""
 
     def __init__(self):
-        """Initialize the bot with all components"""
+        """Initialize the agent with all components"""
         self.settings = get_settings()
         self.logger = logging.getLogger(__name__)
 
         # Initialize Slack handler
         self.slack_handler = SlackHandler(self.settings)
 
-        # Initialize LangChain Agent with feedback callback
-        self.agent = YouTubeAgent(
+        # Initialize LangChain YouTube Agent with feedback callback
+        self.youtube_agent = YouTubeDownloadAgent(
             settings=self.settings,
             feedback_callback=self.slack_handler.send_message
         )
@@ -92,7 +92,7 @@ class YouTubeBot:
 
         try:
             # Delegate to LangChain Agent
-            result = self.agent.process_message(
+            result = self.youtube_agent.process_message(
                 channel_id=channel_id,
                 user_id=user_id,
                 message=text,
@@ -126,7 +126,7 @@ class YouTubeBot:
         global running
 
         self.logger.info("=" * 60)
-        self.logger.info("🚀 Starting Slack YouTube Downloader Bot (LangChain)")
+        self.logger.info("🚀 Starting YouTube Download Agent (LangChain)")
         self.logger.info("=" * 60)
         self.logger.info(f"🤖 Using LangChain Agent with {self.settings.ollama_model}")
 
@@ -134,7 +134,7 @@ class YouTubeBot:
         try:
             self.slack_handler.start()
 
-            self.logger.info("✨ Bot is now running and listening for messages...")
+            self.logger.info("✨ Agent is now running and listening for messages...")
             self.logger.info(f"📂 Download directory: {self.settings.download_dir}")
             self.logger.info("Press Ctrl+C to stop")
 
@@ -150,10 +150,10 @@ class YouTubeBot:
             self.shutdown()
 
     def shutdown(self) -> None:
-        """Gracefully shutdown the bot"""
-        self.logger.info("Shutting down bot...")
+        """Gracefully shutdown the agent"""
+        self.logger.info("Shutting down agent...")
         self.slack_handler.stop()
-        self.logger.info("✅ Bot shutdown complete")
+        self.logger.info("✅ Agent shutdown complete")
 
 
 def main():
@@ -169,12 +169,12 @@ def main():
         signal.signal(signal.SIGINT, signal_handler)
         signal.signal(signal.SIGTERM, signal_handler)
 
-        # Create and run bot
-        bot = YouTubeBot()
-        bot.run()
+        # Create and run agent
+        agent = YouTubeAgent()
+        agent.run()
 
     except Exception as e:
-        logger.error(f"Failed to start bot: {e}", exc_info=True)
+        logger.error(f"Failed to start agent: {e}", exc_info=True)
         sys.exit(1)
 
 
