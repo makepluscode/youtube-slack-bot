@@ -71,14 +71,18 @@ class SlackHandler:
                 if event.get("subtype") in ["bot_message", "message_changed"]:
                     return
 
-                # Filter out messages from the bot itself
+                # Filter out messages from the bot itself (unless it's a test message)
                 user_id = event.get("user")
-                if user_id == self.bot_user_id:
+                text = event.get("text", "")
+
+                # Allow test messages from bot (with [TEST] marker)
+                is_test_message = "[TEST]" in text
+
+                if user_id == self.bot_user_id and not is_test_message:
                     logger.debug("Ignoring message from bot itself")
                     return
 
                 channel_id = event.get("channel")
-                text = event.get("text", "")
                 ts = event.get("ts")
 
                 # Check if we should monitor this channel

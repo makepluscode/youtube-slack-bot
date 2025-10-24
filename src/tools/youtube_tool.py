@@ -119,6 +119,7 @@ class YouTubeDownloadTool(BaseTool):
             download_path = Path(self.download_dir)
             command = [
                 "yt-dlp",
+                "--extractor-args", "youtube:player_client=android",  # Use Android client to bypass 403
                 "--format",
                 "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
                 "--merge-output-format",
